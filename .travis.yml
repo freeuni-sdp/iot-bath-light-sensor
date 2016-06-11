@@ -1,9 +1,6 @@
 language: java
 
-jdk:
-  - oraclejdk8
-
-script: mvn package
-
-after_success:
-  - mvn clean test
+deploy:
+   provider: heroku
+   api_key: "a8d91601-94e0-41bb-9827-64308366763f"
+   app: iot-bath-light-sensor
