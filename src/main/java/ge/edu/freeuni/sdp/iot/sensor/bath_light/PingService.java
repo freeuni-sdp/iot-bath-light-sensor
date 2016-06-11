@@ -1,4 +1,4 @@
-package ge.edu.freeuni.sdp.iot.sensor.bath_light.core;
+package ge.edu.freeuni.sdp.iot.sensor.bath_light;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
