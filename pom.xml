@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ge.edu.freeuni.sdp.iot.sensor.bath_light</groupId>
-	<artifactId>bath-light-sensor</artifactId>
+	<artifactId>iot-bath-light-sensor</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
 	<name>iot-bath-light-sensor</name>
@@ -12,7 +12,7 @@
 	<build>
 		<testSourceDirectory>test</testSourceDirectory>
 
-		<finalName>bath-light-sensor</finalName>
+		<finalName>iot-bath-light-sensor</finalName>
 		<plugins>
 
 			<plugin>
