@@ -3,8 +3,7 @@ package ge.edu.freeuni.sdp.iot.sensor.bath_light.core;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
-@Path("ping")
-@Consumes( { MediaType.APPLICATION_JSON})
+@Path("/ping")
 @Produces( { MediaType.APPLICATION_JSON})
 public class PingService {
 
@@ -15,11 +14,8 @@ public class PingService {
 
   @GET
   @Path("{id}")
-  public TaskDo getJson(@PathParam("id") String id) {
-    TaskDo task = new TaskDo();
-    task.setId(id);
-    task.setText("test");
-    return task;
+  public Response getJson() {
+    return Response.ok().build();
   }
 
 }
