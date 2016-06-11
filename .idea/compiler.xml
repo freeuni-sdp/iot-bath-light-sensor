@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="ath-light-sensor" />
+        <module name="todo-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ath-light-sensor" target="1.7" />
+      <module name="todo-core" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

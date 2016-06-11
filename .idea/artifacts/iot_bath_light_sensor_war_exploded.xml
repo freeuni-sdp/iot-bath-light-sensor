@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="iot-bath-light-sensor:war exploded">
-    <output-path>$PROJECT_DIR$/target/iot-bath-light-sensor</output-path>
+  <artifact type="exploded-war" name="iot_bath_light_sensor:war exploded">
+    <output-path>$PROJECT_DIR$/target/iot_bath_light_sensor</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="iot-bath-light-sensor" />
+          <element id="module-output" name="iot_bath_light_sensor" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: com.microsoft.azure:azure-storage:4.2.0" />
@@ -41,9 +41,9 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/iot-bath-light-sensor/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/iot_bath_light_sensor/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="iot-bath-light-sensor/web/Web" />
+      <element id="javaee-facet-resources" facet="iot_bath_light_sensor/web/Web" />
     </root>
   </artifact>
 </component>
