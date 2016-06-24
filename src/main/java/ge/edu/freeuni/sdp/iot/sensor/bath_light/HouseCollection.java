@@ -6,9 +6,10 @@ import java.util.HashMap;
  * Created by Babalah on 6/24/2016.
  */
 public class HouseCollection {
-    private HashMap<String, House> houses;
+    //              id,     House
+    private HashMap<String, House> houses = null;
 
-    public HouseCollection() {
+    public HouseCollection(){
         houses = new HashMap<String, House>();
     }
 
@@ -22,4 +23,7 @@ public class HouseCollection {
         }
     }
 
+    public int getSize() {
+        return houses.size();
+    }
 }
