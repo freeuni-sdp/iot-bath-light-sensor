@@ -18,12 +18,16 @@ public class GetService {
     @GET
     public Response get(@PathParam("house_id") String houseId) {
         HouseCollection collection = HouseCollectionFactory.getInstance();
+        System.out.print(!(collection == null));
         boolean status = collection.getSingleStatus(houseId);
+        System.out.print("status = " + status);
         String time = collection.getSingleTime(houseId);
+        System.out.print("time = " + time);
         JSONObject obj = new JSONObject();
         obj.put("house_id", houseId);
         obj.put("is_light_on", status ? "true" : "false");
         obj.put("light_switch_time", time);
+        System.out.print(obj);
         return Response.status(200).entity(obj).build();
     }
 }
