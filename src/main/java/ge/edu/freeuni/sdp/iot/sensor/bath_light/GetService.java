@@ -33,7 +33,7 @@ public class GetService {
         MyJaxBean jxb = new MyJaxBean();
         jxb.time = time;
         jxb.status = status ? "true" : "false";
-        jxb.house_id = houseId;
+        jxb.houseId = houseId;
         return jxb;
     }
 }
