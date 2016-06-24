@@ -23,6 +23,10 @@ public class HouseCollection {
         }
     }
 
+    public boolean houseExists(String houseId){
+        return houses.containsKey(houseId);
+    }
+
     public boolean getSingleStatus(String houseId) {
         House house = houses.get(houseId);
         return house.status;

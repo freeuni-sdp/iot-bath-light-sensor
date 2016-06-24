@@ -20,6 +20,9 @@ public class GetService {
         System.out.print("uuuuu");
         HouseCollection collection = HouseCollectionFactory.getInstance();
         System.out.print(!(collection == null));
+        if(!collection.houseExists(houseId)){
+            return Response.status(506).build();
+        }
         boolean status = collection.getSingleStatus(houseId);
         System.out.print("status = " + status);
         String time = collection.getSingleTime(houseId);
