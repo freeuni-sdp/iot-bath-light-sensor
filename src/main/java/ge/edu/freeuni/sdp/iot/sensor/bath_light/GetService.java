@@ -8,6 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 /**
  * Created by Babalah on 6/24/2016.
@@ -16,21 +18,22 @@ import org.json.simple.JSONObject;
 public class GetService {
 
     @GET
-    public Response get(@PathParam("house_id") String houseId) {
-        System.out.println("uuuuu");
+    @Produces({MediaType.APPLICATION_JSON})
+    public Message get(@PathParam("house_id") String houseId) {
         HouseCollection collection = HouseCollectionFactory.getInstance();
-        System.out.println(!(collection == null));
         if(!collection.houseExists(houseId))
-            return Response.status(506).entity("House does not exist").build();
+            return null;
         boolean status = collection.getSingleStatus(houseId);
-        System.out.println("status = " + status);
         String time = collection.getSingleTime(houseId);
-        System.out.println("time = " + time);
-        JSONObject obj = new JSONObject();
-        obj.put("house_id", houseId);
-        obj.put("is_light_on", status ? "true" : "false");
-        obj.put("light_switch_time", time);
-        System.out.println(obj);
-        return Response.status(200).entity(obj).build();
+//        JSONObject obj = new JSONObject();
+//        obj.put("house_id", houseId);
+//        obj.put("is_light_on", status ? "true" : "false");
+//        obj.put("light_switch_time", time);
+//        System.out.println(obj);
+        Message msg = new Message();
+        msg.setTime(time);
+        msg.setStatus(status ? "true" : "false");
+        msg.setHouseId(houseId);
+        return msg;
     }
 }
