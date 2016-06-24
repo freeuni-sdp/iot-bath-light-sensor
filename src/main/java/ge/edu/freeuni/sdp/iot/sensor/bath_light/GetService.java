@@ -19,7 +19,7 @@ public class GetService {
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public Message get(@PathParam("house_id") String houseId) {
+    public MyJaxBean get(@PathParam("house_id") String houseId) {
         HouseCollection collection = HouseCollectionFactory.getInstance();
         if(!collection.houseExists(houseId))
             return null;
@@ -30,10 +30,10 @@ public class GetService {
 //        obj.put("is_light_on", status ? "true" : "false");
 //        obj.put("light_switch_time", time);
 //        System.out.println(obj);
-        Message msg = new Message();
-        msg.setTime(time);
-        msg.setStatus(status ? "true" : "false");
-        msg.setHouseId(houseId);
-        return msg;
+        MyJaxBean jxb = new MyJaxBean();
+        jxb.time = time;
+        jxb.status = status ? "true" : "false";
+        jxb.houseId = houseId;
+        return jxb;
     }
 }
