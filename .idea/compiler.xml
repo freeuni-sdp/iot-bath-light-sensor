@@ -22,10 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="iot-bath-light-sensor" />
         <module name="todo-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="iot-bath-light-sensor" target="1.7" />
       <module name="todo-core" target="1.7" />
     </bytecodeTargetLevel>
   </component>
