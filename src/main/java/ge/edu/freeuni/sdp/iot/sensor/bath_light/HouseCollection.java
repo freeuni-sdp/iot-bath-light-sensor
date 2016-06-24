@@ -23,6 +23,16 @@ public class HouseCollection {
         }
     }
 
+    public boolean getSingleStatus(String houseId) {
+        House house = houses.get(houseId);
+        return house.status;
+    }
+
+    public String getSingleTime(String houseId) {
+        House house = houses.get(houseId);
+        return house.time;
+    }
+
     public int getSize() {
         return houses.size();
     }

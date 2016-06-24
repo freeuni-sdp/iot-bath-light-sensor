@@ -8,7 +8,8 @@ import java.util.HashMap;
 public class House {
     private int id;
     private HashMap<String, Boolean> History;
-    private boolean status;
+    public boolean status;
+    public String time;
 
     public House(String id) {
         this.id = Integer.parseInt(id);
@@ -17,6 +18,7 @@ public class House {
 
     public void write(MyJaxBean input) {
         status = input.status.equals("on");
+        time = input.time;
         History.put(input.time, status);
     }
 }
