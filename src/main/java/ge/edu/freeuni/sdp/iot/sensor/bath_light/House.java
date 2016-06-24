@@ -1,8 +1,5 @@
 package ge.edu.freeuni.sdp.iot.sensor.bath_light;
 
-import jdk.internal.util.xml.impl.Pair;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
