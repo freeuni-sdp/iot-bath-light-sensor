@@ -17,6 +17,7 @@ public class GetService {
 
     @GET
     public Response get(@PathParam("house_id") String houseId) {
+        System.out.print("uuuuu");
         HouseCollection collection = HouseCollectionFactory.getInstance();
         System.out.print(!(collection == null));
         boolean status = collection.getSingleStatus(houseId);
