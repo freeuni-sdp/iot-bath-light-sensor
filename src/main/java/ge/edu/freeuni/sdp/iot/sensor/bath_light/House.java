@@ -6,13 +6,13 @@ import java.util.HashMap;
  * Created by Babalah on 6/24/2016.
  */
 public class House {
-    private int id;
+    public String id;
     private HashMap<String, Boolean> History;
     public boolean status;
     public String time;
 
     public House(String id) {
-        this.id = Integer.parseInt(id);
+        this.id = id;
         History = new HashMap<String, Boolean>();
     }
 

@@ -6,6 +6,9 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.PathParam;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import javax.ws.rs.Produces;
@@ -14,12 +17,20 @@ import javax.ws.rs.core.MediaType;
 /**
  * Created by Babalah on 6/24/2016.
  */
-@Path("status/house/{house_id}")
+@Path("status")
 public class GetService {
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public MyJaxBean get(@PathParam("house_id") String houseId) {
+    public List<MyJaxBean> getAllHouses() {
+        HouseCollection collection = HouseCollectionFactory.getInstance();
+        return collection.getHouses();
+    }
+
+    @GET
+    @Path("/house/{house_id}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public MyJaxBean getSingleHouse(@PathParam("house_id") String houseId) {
         HouseCollection collection = HouseCollectionFactory.getInstance();
         if(!collection.houseExists(houseId))
             return null;
