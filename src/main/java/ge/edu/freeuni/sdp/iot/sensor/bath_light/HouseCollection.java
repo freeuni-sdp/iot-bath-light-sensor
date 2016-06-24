@@ -14,12 +14,12 @@ public class HouseCollection {
     }
 
     public void add(MyJaxBean input) {
-        if (houses.containsKey(input.houseId))
-            houses.get(input.houseId).write(input);
+        if (houses.containsKey(input.house_id))
+            houses.get(input.house_id).write(input);
         else {
-            House house = new House(input.houseId);
+            House house = new House(input.house_id);
             house.write(input);
-            houses.put(input.houseId, house);
+            houses.put(input.house_id, house);
         }
     }
 

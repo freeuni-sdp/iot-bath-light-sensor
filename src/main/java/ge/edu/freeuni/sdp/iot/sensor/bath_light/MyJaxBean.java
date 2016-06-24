@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.*;
  */
 @XmlRootElement
 public class MyJaxBean {
-    @XmlElement public String houseId;
+    @XmlElement public String house_id;
     @XmlElement public String time;
     @XmlElement public String status;
 }
