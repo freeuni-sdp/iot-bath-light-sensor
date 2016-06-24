@@ -18,21 +18,19 @@ public class GetService {
     @GET
     public Response get(@PathParam("house_id") String houseId) {
         System.out.println("uuuuu");
-        return Response.status(200).entity(houseId).build();
-//        HouseCollection collection = HouseCollectionFactory.getInstance();
-//        System.out.println(!(collection == null));
-//        if(!collection.houseExists(houseId)){
-//            return Response.status(506).build();
-//        }
-//        boolean status = collection.getSingleStatus(houseId);
-//        System.out.println("status = " + status);
-//        String time = collection.getSingleTime(houseId);
-//        System.out.println("time = " + time);
-//        JSONObject obj = new JSONObject();
-//        obj.put("house_id", houseId);
-//        obj.put("is_light_on", status ? "true" : "false");
-//        obj.put("light_switch_time", time);
-//        System.out.println(obj);
-//        return Response.status(200).entity(obj).build();
+        HouseCollection collection = HouseCollectionFactory.getInstance();
+        System.out.println(!(collection == null));
+        if(!collection.houseExists(houseId))
+            return Response.status(506).entity("House does not exist").build();
+        boolean status = collection.getSingleStatus(houseId);
+        System.out.println("status = " + status);
+        String time = collection.getSingleTime(houseId);
+        System.out.println("time = " + time);
+        JSONObject obj = new JSONObject();
+        obj.put("house_id", houseId);
+        obj.put("is_light_on", status ? "true" : "false");
+        obj.put("light_switch_time", time);
+        System.out.println(obj);
+        return Response.status(200).entity(obj).build();
     }
 }
