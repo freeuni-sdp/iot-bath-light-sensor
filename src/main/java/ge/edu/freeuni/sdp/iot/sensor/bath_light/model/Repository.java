@@ -4,13 +4,13 @@ import com.microsoft.azure.storage.StorageException;
 
 public interface Repository {
 
-    public abstract void insertOrUpdate(BathroomEntity bathroom)
+    public abstract void insertOrUpdate(HouseEntity bathroom)
             throws StorageException;
 
-    public abstract BathroomEntity delete(String id) throws StorageException;
+    public abstract HouseEntity delete(String id) throws StorageException;
 
-    public abstract BathroomEntity find(String id) throws StorageException;
+    public abstract HouseEntity find(String id) throws StorageException;
 
-    public abstract Iterable<BathroomEntity> getAll();
+    public abstract Iterable<HouseEntity> getAll();
 
 }
