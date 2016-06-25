@@ -1,4 +1,4 @@
-package ge.edu.freeuni.sdp.iot.sensor.bath_light;
+package ge.edu.freeuni.sdp.iot.sensor.bath_light.controller;
 
 /**
  * Created by Babalah on 6/24/2016.

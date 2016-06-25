@@ -1,5 +1,6 @@
 package ge.edu.freeuni.sdp.iot.sensor.bath_light;
 
+import ge.edu.freeuni.sdp.iot.sensor.bath_light.controller.PingService;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Test;

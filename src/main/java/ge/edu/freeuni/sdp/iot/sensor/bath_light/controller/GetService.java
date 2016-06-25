@@ -1,16 +1,10 @@
-package ge.edu.freeuni.sdp.iot.sensor.bath_light;
+package ge.edu.freeuni.sdp.iot.sensor.bath_light.controller;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.core.Response;
 import javax.ws.rs.PathParam;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 

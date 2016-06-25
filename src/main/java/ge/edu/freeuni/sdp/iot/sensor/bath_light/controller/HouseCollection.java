@@ -1,8 +1,7 @@
-package ge.edu.freeuni.sdp.iot.sensor.bath_light;
+package ge.edu.freeuni.sdp.iot.sensor.bath_light.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by Babalah on 6/24/2016.

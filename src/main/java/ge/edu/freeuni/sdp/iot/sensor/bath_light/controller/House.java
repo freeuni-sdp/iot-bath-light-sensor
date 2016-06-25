@@ -1,4 +1,4 @@
-package ge.edu.freeuni.sdp.iot.sensor.bath_light;
+package ge.edu.freeuni.sdp.iot.sensor.bath_light.controller;
 
 import java.util.HashMap;
 

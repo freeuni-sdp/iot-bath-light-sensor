@@ -1,5 +1,7 @@
 package ge.edu.freeuni.sdp.iot.sensor.bath_light;
 
+import ge.edu.freeuni.sdp.iot.sensor.bath_light.controller.MyJaxBean;
+import ge.edu.freeuni.sdp.iot.sensor.bath_light.controller.PostService;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Test;
@@ -7,8 +9,6 @@ import org.junit.Test;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.Response;
-
-import static org.junit.Assert.*;
 
 public class PostServiceTest extends JerseyTest {
 
