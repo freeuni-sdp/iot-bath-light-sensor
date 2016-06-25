@@ -21,14 +21,11 @@ public class PostService {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:s.SS'Z'");
         input.time = df.format(new Date());
         System.out.println("houseId = " + input.houseId + ", time = " + input.time + ", status = " + input.status);
-        //HouseCollection collection = HouseCollectionFactory.getInstance();
-        //collection.add(input);
         try {
             Repository repository = RepositoryFactory.create();
             repository.insertOrUpdate(new HouseEntity(input));
         } catch (StorageException e) {
             e.printStackTrace();
         }
-        //System.out.println(collection.getSize());
     }
 }

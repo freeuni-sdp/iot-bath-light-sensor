@@ -2,7 +2,6 @@ package ge.edu.freeuni.sdp.iot.sensor.bath_light.model;
 
 
 import com.microsoft.azure.storage.table.TableServiceEntity;
-import ge.edu.freeuni.sdp.iot.sensor.bath_light.controller.House;
 import ge.edu.freeuni.sdp.iot.sensor.bath_light.controller.MyJaxBean;
 
 public class HouseEntity extends TableServiceEntity {

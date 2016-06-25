@@ -4,7 +4,6 @@ import com.microsoft.azure.storage.StorageException;
 import com.microsoft.azure.storage.table.CloudTable;
 import com.microsoft.azure.storage.table.TableOperation;
 import com.microsoft.azure.storage.table.TableQuery;
-import ge.edu.freeuni.sdp.iot.sensor.bath_light.controller.House;
 
 public class CloudRepository implements Repository {
 

@@ -24,8 +24,6 @@ public class GetService {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public List<MyJaxBean> getAllHouses() {
-//        HouseCollection collection = HouseCollectionFactory.getInstance();
-//        return collection.getHouses();
         Iterable<HouseEntity> iter = null;
         try {
             Repository repository = RepositoryFactory.create();
@@ -49,23 +47,6 @@ public class GetService {
     @Path("/house/{house_id}")
     @Produces({MediaType.APPLICATION_JSON})
     public MyJaxBean getSingleHouse(@PathParam("house_id") String houseId) {
-        /*
-        HouseCollection collection = HouseCollectionFactory.getInstance();
-        if(!collection.houseExists(houseId))
-            return null;
-        boolean status = collection.getSingleStatus(houseId);
-        String time = collection.getSingleTime(houseId);
-//        JSONObject obj = new JSONObject();
-//        obj.put("house_id", houseId);
-//        obj.put("is_light_on", status ? "true" : "false");
-//        obj.put("light_switch_time", time);
-//        System.out.println(obj);
-        MyJaxBean jxb = new MyJaxBean();
-        jxb.time = time;
-        jxb.status = status ? "true" : "false";
-        jxb.houseId = houseId;
-        return jxb;
-        */
         HouseEntity house = null;
         try {
             Repository repository = RepositoryFactory.create();
