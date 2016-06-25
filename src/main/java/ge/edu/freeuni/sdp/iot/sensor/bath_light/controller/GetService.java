@@ -8,6 +8,8 @@ import ge.edu.freeuni.sdp.iot.sensor.bath_light.model.RepositoryFactory;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.ws.rs.Produces;
@@ -22,8 +24,25 @@ public class GetService {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public List<MyJaxBean> getAllHouses() {
-        HouseCollection collection = HouseCollectionFactory.getInstance();
-        return collection.getHouses();
+//        HouseCollection collection = HouseCollectionFactory.getInstance();
+//        return collection.getHouses();
+        Iterable<HouseEntity> iter = null;
+        try {
+            Repository repository = RepositoryFactory.create();
+            iter = repository.getAll();
+        } catch (StorageException e) {
+            e.printStackTrace();
+        }
+        List<MyJaxBean> list = new ArrayList<>();
+        for(HouseEntity house : iter){
+            MyJaxBean bean = new MyJaxBean();
+            bean.houseId = house.getRowKey();
+            bean.status = house.getStatus().equals("on") ? "true" : "false";
+            bean.time = house.getTime();
+            list.add(new MyJaxBean());
+        }
+
+        return list;
     }
 
     @GET
