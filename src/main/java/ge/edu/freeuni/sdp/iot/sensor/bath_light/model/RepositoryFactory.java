@@ -16,7 +16,7 @@ public class RepositoryFactory {
 
         final String storageConnectionString = "DefaultEndpointsProtocol=http;"
                 + "AccountName=wrinkl3;"
-                + "AccountKey=+9HqkIG/4PAMDmC9zKe7wjRPt/Nq6alKtKUOMbM7tSToWACOjNtw47sFuslrYAJkU8SYbeIhDi9CQ7VI0qcBoCg==";
+                + "AccountKey=7gd+LH8397613+5HxTNtemqTuP6ZrHL3Dq43g3uimJZn3gcrTHGxbxSQYB55w2/Ab5cdEKBUjyTDHfwkKKFe8Q==";
 
         CloudStorageAccount storageAccount;
         try {
