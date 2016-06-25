@@ -1,5 +1,10 @@
 package ge.edu.freeuni.sdp.iot.sensor.bath_light.controller;
 
+import com.microsoft.azure.storage.StorageException;
+import ge.edu.freeuni.sdp.iot.sensor.bath_light.model.HouseEntity;
+import ge.edu.freeuni.sdp.iot.sensor.bath_light.model.Repository;
+import ge.edu.freeuni.sdp.iot.sensor.bath_light.model.RepositoryFactory;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -25,6 +30,7 @@ public class GetService {
     @Path("/house/{house_id}")
     @Produces({MediaType.APPLICATION_JSON})
     public MyJaxBean getSingleHouse(@PathParam("house_id") String houseId) {
+        /*
         HouseCollection collection = HouseCollectionFactory.getInstance();
         if(!collection.houseExists(houseId))
             return null;
@@ -38,6 +44,21 @@ public class GetService {
         MyJaxBean jxb = new MyJaxBean();
         jxb.time = time;
         jxb.status = status ? "true" : "false";
+        jxb.houseId = houseId;
+        return jxb;
+        */
+        HouseEntity house = null;
+        try {
+            Repository repository = RepositoryFactory.create();
+            house = repository.find(houseId);
+            System.out.println(house.getStatus() + " " + house.getTime());
+        } catch (StorageException e) {
+            e.printStackTrace();
+        }
+
+        MyJaxBean jxb = new MyJaxBean();
+        jxb.time = house.getTime();
+        jxb.status = house.getStatus().equals("on") ? "true" : "false";
         jxb.houseId = houseId;
         return jxb;
     }
