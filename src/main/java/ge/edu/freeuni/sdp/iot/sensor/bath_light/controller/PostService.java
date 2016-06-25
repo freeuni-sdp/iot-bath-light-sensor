@@ -12,9 +12,7 @@ public class PostService {
     @POST
     @Consumes("application/json")
     public void post(final MyJaxBean input) {
-        TimeZone tz = TimeZone.getTimeZone("UTC");
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SSZ");
-        df.setTimeZone(tz);
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:s.SS'Z'");
         input.time = df.format(new Date());
         System.out.println("houseId = " + input.houseId + ", time = " + input.time + ", status = " + input.status);
         HouseCollection collection = HouseCollectionFactory.getInstance();
