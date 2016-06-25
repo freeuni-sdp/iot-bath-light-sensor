@@ -39,7 +39,7 @@ public class GetService {
             bean.houseId = house.getRowKey();
             bean.status = house.getStatus().equals("on") ? "true" : "false";
             bean.time = house.getTime();
-            list.add(new MyJaxBean());
+            list.add(bean);
         }
 
         return list;
