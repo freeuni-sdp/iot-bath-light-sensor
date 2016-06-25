@@ -6,10 +6,6 @@ import com.microsoft.azure.storage.table.TableServiceEntity;
 public class HouseEntity extends TableServiceEntity {
 
     public HouseEntity(){
-
-        public HouseEntity(){
-
-        }
     }
 
 
