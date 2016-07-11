@@ -21,12 +21,16 @@ import javax.ws.rs.core.MediaType;
 @Path("status")
 public class GetService {
 
+    public Repository getRepository() throws StorageException {
+        return RepositoryFactory.create();
+    }
+
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public List<MyJaxBean> getAllHouses() {
         Iterable<HouseEntity> iter = null;
         try {
-            Repository repository = RepositoryFactory.create();
+            Repository repository = getRepository();
             iter = repository.getAll();
         } catch (StorageException e) {
             e.printStackTrace();
@@ -49,7 +53,7 @@ public class GetService {
     public MyJaxBean getSingleHouse(@PathParam("house_id") String houseId) {
         HouseEntity house = null;
         try {
-            Repository repository = RepositoryFactory.create();
+            Repository repository = getRepository();
             house = repository.find(houseId);
             System.out.println(house.getStatus() + " " + house.getTime());
         } catch (StorageException e) {

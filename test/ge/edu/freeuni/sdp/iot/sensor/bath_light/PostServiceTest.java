@@ -14,7 +14,7 @@ public class PostServiceTest extends JerseyTest {
 
     @Override
     protected Application configure() {
-        return new ResourceConfig(PostService.class);
+        return new ResourceConfig(FakePostService.class);
     }
 
     @Test

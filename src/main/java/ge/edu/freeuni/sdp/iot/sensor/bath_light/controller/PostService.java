@@ -16,6 +16,10 @@ import java.util.TimeZone;
 @Path("status")
 public class PostService {
 
+    public Repository getRepository() throws StorageException {
+        return RepositoryFactory.create();
+    }
+
     @POST
     @Consumes("application/json")
     public Response post(final MyJaxBean input) {
@@ -23,7 +27,7 @@ public class PostService {
         input.time = df.format(new Date());
         System.out.println("houseId = " + input.houseId + ", time = " + input.time + ", status = " + input.status);
         try {
-            Repository repository = RepositoryFactory.create();
+            Repository repository = getRepository();
             repository.insertOrUpdate(new HouseEntity(input));
             return Response.ok().build();
         } catch (StorageException e) {
