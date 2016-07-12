@@ -54,7 +54,7 @@ public class PostServiceTest extends JerseyTest {
         System.out.print(actual.getStatus());
 
         assertEquals(
-                Response.Status.NO_CONTENT.getStatusCode(),
+                Response.Status.BAD_REQUEST.getStatusCode(),
                 actual.getStatus());
     }
 

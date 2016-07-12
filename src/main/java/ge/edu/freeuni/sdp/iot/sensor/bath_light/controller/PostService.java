@@ -33,7 +33,7 @@ public class PostService {
         input.setTime(df.format(new Date()));
         System.out.println("houseId = " + input.getHouseId() + ", time = " + input.getTime() + ", status = " + input.getStatus());
         if (input.getHouseId() == null) {
-            return Response.noContent().build();
+            return Response.status(400).build();
         }
         try {
             Repository repository = getRepository();
