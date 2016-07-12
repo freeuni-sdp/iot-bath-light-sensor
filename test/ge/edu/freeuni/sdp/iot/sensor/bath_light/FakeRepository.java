@@ -13,7 +13,7 @@ public class FakeRepository extends InMemoryRepository implements Repository {
     private static FakeRepository instance;
 
     public static FakeRepository instance() {
-        if (instance==null) {
+        if (instance == null) {
             instance = new FakeRepository(new HashMap<String, HouseEntity>());
         }
         return instance;

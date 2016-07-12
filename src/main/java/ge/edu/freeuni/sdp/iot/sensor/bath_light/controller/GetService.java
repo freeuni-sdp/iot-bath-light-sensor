@@ -5,14 +5,11 @@ import ge.edu.freeuni.sdp.iot.sensor.bath_light.model.HouseEntity;
 import ge.edu.freeuni.sdp.iot.sensor.bath_light.model.Repository;
 import ge.edu.freeuni.sdp.iot.sensor.bath_light.model.RepositoryFactory;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -55,15 +52,22 @@ public class GetService {
         try {
             Repository repository = getRepository();
             house = repository.find(houseId);
-            System.out.println(house.getStatus() + " " + house.getTime());
+            if (house == null) {
+                throw new WebApplicationException(404);
+            }
         } catch (StorageException e) {
             e.printStackTrace();
         }
 
         MyJaxBean jxb = new MyJaxBean();
-        jxb.setStatus(house.getStatus().equals("on") ? "true" : "false");
+        if (house.getStatus().equals("on") || house.getStatus().equals("true")){
+            jxb.setStatus("true");
+        } else if (house.getStatus().equals("off") || house.getStatus().equals("false")) {
+            jxb.setStatus("false");
+        }
         jxb.setTime(house.getTime());
         jxb.setHouseId(houseId);
+
         return jxb;
     }
 }

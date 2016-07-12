@@ -11,7 +11,7 @@ public class InMemoryRepository implements Repository{
     protected Map<String, HouseEntity> map;
 
     public static InMemoryRepository instance() {
-        if (instance==null) {
+        if (instance == null) {
             instance = new InMemoryRepository(new HashMap<String, HouseEntity>());
         }
         return instance;

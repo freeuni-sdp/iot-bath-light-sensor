@@ -11,7 +11,7 @@ public class HouseEntity extends TableServiceEntity {
         this.partitionKey = PARTITION;
         this.rowKey = house.getHouseId();
         this.time = house.getTime();
-        this.status = house.getHouseId();
+        this.status = house.getStatus();
     }
 
     public HouseEntity(){}
