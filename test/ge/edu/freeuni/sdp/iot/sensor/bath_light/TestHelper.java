@@ -21,4 +21,13 @@ public class TestHelper {
         jxb.setTime(df.format(new Date()));
         return jxb;
     }
+
+    public static MyJaxBean createIncompleteJXB(){
+        MyJaxBean jxb = new MyJaxBean();
+        Random rand = new Random();
+        jxb.setStatus(""+rand.nextBoolean());
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:s.SS'Z'");
+        jxb.setTime(df.format(new Date()));
+        return jxb;
+    }
 }
