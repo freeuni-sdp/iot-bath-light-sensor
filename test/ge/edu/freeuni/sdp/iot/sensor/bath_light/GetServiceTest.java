@@ -49,7 +49,7 @@ public class GetServiceTest extends JerseyTest {
         FakeRepository.instance().insertOrUpdate(entity);
 
         MyJaxBean[] result =
-                target("status/house/"+id)
+                target("status")
                         .request()
                         .get(MyJaxBean[].class);
 
