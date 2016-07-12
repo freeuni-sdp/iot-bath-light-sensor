@@ -73,7 +73,7 @@ public class GetServiceTest extends JerseyTest {
         FakeRepository.instance().clear();
         ArrayList<MyJaxBean> jxbs = new ArrayList<MyJaxBean>();
         Random rand = new Random();
-        int n = rand.nextInt(10);
+        int n = rand.nextInt(3);
         for (int i = 0; i < n; i++) {
             MyJaxBean jxb = TestHelper.createRandomJXB();
             jxbs.add(jxb);

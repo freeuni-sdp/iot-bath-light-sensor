@@ -58,4 +58,19 @@ public class PostServiceTest extends JerseyTest {
                 actual.getStatus());
     }
 
+    @Test
+    public void post_elsewhere() {
+        FakeRepository.instance().clear();
+
+        MyJaxBean jxb = TestHelper.createRandomJXB();
+
+        Response actual =
+                target("status/house/" + jxb.getHouseId())
+                        .request()
+                        .post(Entity.entity(jxb, MediaType.APPLICATION_JSON_TYPE));
+
+        assertEquals(
+                Response.Status.NOT_FOUND.getStatusCode(),
+                actual.getStatus());
+    }
 }
