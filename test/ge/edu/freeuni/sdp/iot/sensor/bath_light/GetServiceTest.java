@@ -48,14 +48,12 @@ public class GetServiceTest extends JerseyTest {
         HouseEntity entity = new HouseEntity(jxb);
         FakeRepository.instance().insertOrUpdate(entity);
 
-        MyJaxBean result =
+        MyJaxBean[] result =
                 target("status/house/"+id)
                         .request()
-                        .get(MyJaxBean.class);
+                        .get(MyJaxBean[].class);
 
-        //assertEquals(1, result.length);
-        assertEquals(jxb.getHouseId(), result.getHouseId());
-        assertEquals(jxb.getStatus(), result.getStatus());
-        assertEquals(jxb.getTime(), result.getTime());
+        assertEquals(1, result.length);
+        assertEquals(jxb, result[0]);
     }
 }
