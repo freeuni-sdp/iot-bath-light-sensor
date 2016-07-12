@@ -54,4 +54,9 @@ public class MyJaxBean {
             return false;
         return true;
     }
+
+    @Override
+    public String toString(){
+        return "id: " + houseId + ", status: " + status + ", time: " + time;
+    }
 }

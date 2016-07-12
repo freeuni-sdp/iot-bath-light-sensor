@@ -36,7 +36,11 @@ public class GetService {
         for(HouseEntity house : iter){
             MyJaxBean bean = new MyJaxBean();
             bean.setHouseId(house.getRowKey());
-            bean.setStatus(house.getStatus().equals("on") ? "true" : "false");
+            if (house.getStatus().equals("on") || house.getStatus().equals("true")){
+                bean.setStatus("true");
+            } else if (house.getStatus().equals("off") || house.getStatus().equals("false")) {
+                bean.setStatus("false");
+            }
             bean.setTime(house.getTime());
             list.add(bean);
         }

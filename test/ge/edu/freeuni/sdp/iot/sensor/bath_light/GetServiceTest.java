@@ -81,14 +81,27 @@ public class GetServiceTest extends JerseyTest {
             FakeRepository.instance().insertOrUpdate(entity);
         }
 
-        MyJaxBean[] result =
-                target("status")
-                        .request()
-                        .get(MyJaxBean[].class);
+        Response result = target("status").request().get();
+        assertEquals(200, result.getStatus());
 
-        List<MyJaxBean> resList = Arrays.asList(result);
+        String body = result.readEntity(String.class);
+        try {
+            JSONArray array = new JSONArray(body);
+            assertEquals(n, array.length());
+            for (int i = 0; i < n; i++) {
+                JSONObject json = (JSONObject) array.get(i);
+                String resId = json.getString("houseId");
+                String resStatus = json.getString("status");
+                String resTime = json.getString("time");
+                HouseEntity entity = FakeRepository.instance().find(resId);
+                assertNotNull(entity);
+                assertEquals(entity.getStatus(), resStatus);
+                assertEquals(entity.getTime(), resTime);
+            }
 
-        assertTrue(jxbs.containsAll(resList) && resList.containsAll(jxbs));
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 
     @Test
