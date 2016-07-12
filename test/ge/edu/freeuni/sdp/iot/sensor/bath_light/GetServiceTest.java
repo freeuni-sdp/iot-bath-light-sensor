@@ -5,6 +5,10 @@ import ge.edu.freeuni.sdp.iot.sensor.bath_light.controller.MyJaxBean;
 import ge.edu.freeuni.sdp.iot.sensor.bath_light.model.HouseEntity;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONException;
+import org.json.XML;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -44,13 +48,23 @@ public class GetServiceTest extends JerseyTest {
         HouseEntity entity = new HouseEntity(jxb);
         FakeRepository.instance().insertOrUpdate(entity);
 
-        MyJaxBean[] result =
-                target("status")
-                        .request()
-                        .get(MyJaxBean[].class);
+        Response result = target("status").request().get();
+        assertEquals(200, result.getStatus());
 
-        assertEquals(1, result.length);
-        assertEquals(jxb, result[0]);
+        String body = result.readEntity(String.class);
+        try {
+            JSONArray array = new JSONArray(body);
+            assertEquals(1, array.length());
+            JSONObject json = (JSONObject) array.get(0);
+            String resId = json.getString("houseId");
+            String resStatus = json.getString("status");
+            String resTime = json.getString("time");
+            assertEquals(jxb.getHouseId(), resId);
+            assertEquals(jxb.getStatus(), resStatus);
+            assertEquals(jxb.getTime(), resTime);
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 
     @Test
