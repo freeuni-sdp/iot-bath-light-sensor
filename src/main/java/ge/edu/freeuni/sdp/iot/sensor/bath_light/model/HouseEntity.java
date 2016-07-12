@@ -9,9 +9,9 @@ public class HouseEntity extends TableServiceEntity {
 
     public HouseEntity(MyJaxBean house){
         this.partitionKey = PARTITION;
-        this.rowKey = house.houseId;
-        this.time = house.time;
-        this.status = house.status;
+        this.rowKey = house.getHouseId();
+        this.time = house.getTime();
+        this.status = house.getHouseId();
     }
 
     public HouseEntity(){}

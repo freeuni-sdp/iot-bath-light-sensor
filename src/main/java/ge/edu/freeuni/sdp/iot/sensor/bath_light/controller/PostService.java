@@ -24,8 +24,8 @@ public class PostService {
     @Consumes("application/json")
     public Response post(final MyJaxBean input) {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:s.SS'Z'");
-        input.time = df.format(new Date());
-        System.out.println("houseId = " + input.houseId + ", time = " + input.time + ", status = " + input.status);
+        input.setTime(df.format(new Date()));
+        System.out.println("houseId = " + input.getHouseId() + ", time = " + input.getTime() + ", status = " + input.getStatus());
         try {
             Repository repository = getRepository();
             repository.insertOrUpdate(new HouseEntity(input));

@@ -38,9 +38,9 @@ public class GetService {
         List<MyJaxBean> list = new ArrayList<>();
         for(HouseEntity house : iter){
             MyJaxBean bean = new MyJaxBean();
-            bean.houseId = house.getRowKey();
-            bean.status = house.getStatus().equals("on") ? "true" : "false";
-            bean.time = house.getTime();
+            bean.setHouseId(house.getRowKey());
+            bean.setStatus(house.getStatus().equals("on") ? "true" : "false");
+            bean.setTime(house.getTime());
             list.add(bean);
         }
 
@@ -61,9 +61,9 @@ public class GetService {
         }
 
         MyJaxBean jxb = new MyJaxBean();
-        jxb.time = house.getTime();
-        jxb.status = house.getStatus().equals("on") ? "true" : "false";
-        jxb.houseId = houseId;
+        jxb.setStatus(house.getStatus().equals("on") ? "true" : "false");
+        jxb.setTime(house.getTime());
+        jxb.setHouseId(houseId);
         return jxb;
     }
 }

@@ -19,10 +19,6 @@ public class PostServiceTest extends JerseyTest {
 
     @Test
     public void post() throws Exception {
-        MyJaxBean jxb = new MyJaxBean();
-        jxb.houseId = "3";
-        jxb.time = "now";
-        jxb.status = "on";
-        Response response = target("status").request().post(Entity.json(jxb));
+
     }
 }
