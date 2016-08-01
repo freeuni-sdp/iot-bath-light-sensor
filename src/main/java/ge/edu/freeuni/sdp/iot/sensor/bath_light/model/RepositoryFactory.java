@@ -27,7 +27,7 @@ public class RepositoryFactory {
         }
 
         CloudTableClient tableClient = storageAccount.createCloudTableClient();
-        final String tableName = "houses";
+        final String tableName = "houses-bath-light-sensor";
         CloudTable cloudTable;
         try {
             cloudTable = tableClient.getTableReference(tableName);
