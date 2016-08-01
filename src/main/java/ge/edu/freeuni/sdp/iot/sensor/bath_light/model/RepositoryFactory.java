@@ -15,8 +15,8 @@ public class RepositoryFactory {
     private static CloudTable getTable() throws StorageException {
 
         final String storageConnectionString = "DefaultEndpointsProtocol=http;"
-                + "AccountName=wrinkl3;"
-                + "AccountKey=7gd+LH8397613+5HxTNtemqTuP6ZrHL3Dq43g3uimJZn3gcrTHGxbxSQYB55w2/Ab5cdEKBUjyTDHfwkKKFe8Q==";
+				+ "AccountName=freeunisdptodo;"
+				+ "AccountKey=+UKHsHFQUWDjoHT1S7q4Ivc1phivLmXwWESvpcRCCJwhs1BnShkaFOOQs+BmI4XWtNnyg78S6ovbD2J5QCKxsQ==";
 
         CloudStorageAccount storageAccount;
         try {
